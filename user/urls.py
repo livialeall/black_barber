@@ -7,8 +7,9 @@ urlpatterns = [
     #PAGINA INICIAL
     path('',views.index,name='index'),
     #CADASTRO DE NOVO USUARIO
-    path('sign_up_form/',views.sing_up_form,name='sign_up_form'),
+    path('sign_up_form/',views.sign_up_form,name='sign_up_form'),
     #LOGIN DE USUARIO
     path('login/',views.login,name='login'),
     
+   
 ]

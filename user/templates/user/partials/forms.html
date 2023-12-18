@@ -4,20 +4,22 @@
 {% include "user/partials/header.html" %}
 <section class="geral">
     <form 
-    action="{{form_action}}" 
+    action="{{ form_action }}" 
+    method="POST"
     class="form" 
-    id="form"
-    method="POST">
+    id="form">
     {% csrf_token %}
     {% for field in form %}
         <div>
             <label for="{{field.id_for_label}}">{{field.label}}</label>
-            {{field}}
-            {{field.errors}}
+                {{field}}
+                {{msg}}
+                {{ form.non_field_errors }}
         </div>
 
+
         {% endfor %}
-        
+    <button class="button" type="submit">Enviar</button>
     </form>
 </section>
 {% endblock content %}
