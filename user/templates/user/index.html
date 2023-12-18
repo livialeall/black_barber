@@ -1,0 +1,26 @@
+{% extends "global/base.html" %}
+{% load static %}
+{% block content %}
+    <section class="titulo display-flex">
+        <h1>BLACK</h1>
+        <span>barbershop</span>
+    </section>
+
+    <div class="acesso display-flex">
+        <img src={% static "global/img/icone-black.png" %} alt="logo">
+        <span>Já é cliente?</span>
+        {% comment %} REDIRECIONA PARA AREA DE LOGIN {% endcomment %}
+        <button class="logar"><a class="logar" href={% url "user:login" %}>Entre na sua Conta</a></button>
+        <span>ou</span>
+        {% comment %} REDIRECIONA PARA AREA DE CADASTRO {% endcomment %}
+        <button class="cadastrar"><a class="cadastrar" href={% url "user:sign_up_form" %}>Faça seu Cadastro</a></button> 
+        
+    </div>
+
+
+    <footer class="display-flex">
+        <span>developed by</span>
+        <img class="marca-leal" src={% static "global/img/marca.svg" %} alt="marca-leal">
+    </footer>
+
+{% endblock content %}
