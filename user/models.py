@@ -6,19 +6,19 @@ from django.contrib.auth.models import AbstractBaseUser
 
 # Create your models here.
 
-
-#SERVICOS - CORTES FEITOS PELA BARBEARIA
+#TIPOS DE SERVIÇOS
 class Services(models.Model):
-    ...
+    male_cut = models.UniqueConstraint
+    child_cut = models.UniqueConstraint
+    shave = models.UniqueConstraint 
 
-#DIA/HORA DISPONIVEIS
-class Timetable(models.Model):
-    ...    
+#DISPONIBILIDADE
+class Appointments(models.Model):
+    date = models.DateField()
+    availability = models.BinaryField(unique_for_date=True,null=True,blank=True)
+    services = models.ForeignKey(Services,on_delete=models.SET_NULL,null=True,blank=True)
+    client = models.ForeignKey(User,on_delete=models.SET_NULL,null=True,blank=True)
 
-#MARCAÇÕES
 
-class Appointment(models.Model):
-    ...
 
-    #marcações
 

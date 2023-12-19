@@ -1,12 +1,12 @@
 from django.shortcuts import render,redirect
-from django.urls import reverse
 from django import forms
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib import auth, messages
-import pdb
+from django.core.exceptions import ValidationError
+from django.contrib import auth
+
 
 
 def index(request):
@@ -29,16 +29,16 @@ class ClientRegister(UserCreationForm):
         fields = ('first_name','last_name','username','email','password1','password2') #pega do meu model
         
         #SE TENTAREM CRIAR OUTRA CONTA COM UM MEIAL QUE JA EXISTE
-        def clean_email(self):
-            email = self.cleaned_data.get('email')
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+    
+        if User.objects.filter(email=email).exists(): #se o email que passaram no form existe na db
+            self.add_error(
+            'email',
+            ValidationError('Ja existe um usuario com esse email',code='invalid')
+            )
         
-            if User.objects.filter(email=email).exists(): #se o email que passaram no form existe na db
-                self.add_error(
-                'email',
-                ValidationError('Ja existe um usuario com esse email',code='invalid')
-                )
-            
-            return email
+        return email
 
 
 
@@ -47,25 +47,21 @@ def sign_up_form(request):
     
     site_title = 'Cadastro'
     form = ClientRegister()
-    form_action = reverse('user:sign_up_form')
+
     
     #se for um formualrio do tipo post e nao apenas uma renderização tipo GET eu salvo na db realizo o envio os dados do POST para o form
     if request.method =='POST':
         form = ClientRegister(request.POST)
-        print('step')
 
+        # erros = form.errors
        
         if form.is_valid():
-            print('step')
             form.save()
-            print('step')
             return redirect('user:index') #FUTURAMENTE VAI REDIRECIONAR DIRETO PARA A PAGINA DO USUARIO
-
     
     context = {
         'site_title' : site_title,
         'form':form,
-        'form_action':form_action
 
   
     }

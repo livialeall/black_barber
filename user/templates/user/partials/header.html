@@ -3,8 +3,8 @@
 
         <img class="cadastro-ret-verde" src={% static "global/img/cadastro-ret-verde.svg" %} alt="">
         <section class="logos">
-            <img src={% static "global/img/icone-black.png" %} alt="logo">
-            <span>BLACK</span>
+            <a href="{% url "user:index" %}"><img src={% static "global/img/icone-black.png" %} alt="logo"></a>
+            <a href="{% url "user:index" %}"><span>BLACK</span></a>
         </section>
 
 {% endblock header %}

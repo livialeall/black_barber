@@ -13,8 +13,8 @@
         <div>
             <label for="{{field.id_for_label}}">{{field.label}}</label>
                 {{field}}
-                {{msg}}
-                {{ form.non_field_errors }}
+                {{field.errors}}
+                {{field.non_field_errors }}
         </div>
 
 

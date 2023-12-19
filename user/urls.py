@@ -11,5 +11,8 @@ urlpatterns = [
     #LOGIN DE USUARIO
     path('login/',views.login,name='login'),
     
+    #PAGINA DO USUARIO
+    path('user/<int:contact_id>/user_page',views.login,name='user_page'),
+    
    
 ]
