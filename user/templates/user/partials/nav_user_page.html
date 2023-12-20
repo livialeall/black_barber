@@ -1,0 +1,20 @@
+{% load static %}
+<div >
+    <ul class="nav_user_page">
+        <li>
+            <a href="#"><img src={% static "global/img/person_icon.svg" %} alt="person_icon"></a>
+        </li>
+        <li>
+            <a href="{% url "user:new_appoint" user_pk %}"><img src={% static "global/img/calendar_icon.svg" %} alt="calendar_icon"></a>
+        </li>
+        <li>
+            <a href="#"><img src={% static "global/img/search_icon.svg" %} alt="search_icon"></a>
+        </li>
+        <li>
+            <a href="#"><img src={% static "global/img/verified_icon.svg" %} alt="verified_icon"></a>
+        </li>
+    </ul>
+</div>
+    
+
+

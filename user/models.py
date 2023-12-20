@@ -8,16 +8,29 @@ from django.contrib.auth.models import AbstractBaseUser
 
 #TIPOS DE SERVIÇOS
 class Services(models.Model):
-    male_cut = models.UniqueConstraint
-    child_cut = models.UniqueConstraint
-    shave = models.UniqueConstraint 
+    services_code = models.CharField(max_length=100,blank=True,null=True)
+    services_name = models.CharField(max_length=100,blank=True,null=True)
+    #INCLUIR VALORES
+    services_amount = models.IntegerField(blank=True,null=True)
+    
+    def __str__(self):
+        return f"{self.services_name} - R${self.services_amount}"
+    
 
 #DISPONIBILIDADE
-class Appointments(models.Model):
-    date = models.DateField()
-    availability = models.BinaryField(unique_for_date=True,null=True,blank=True)
-    services = models.ForeignKey(Services,on_delete=models.SET_NULL,null=True,blank=True)
-    client = models.ForeignKey(User,on_delete=models.SET_NULL,null=True,blank=True)
+class TimeSlot(models.Model):
+    
+    services = models.ForeignKey(Services,on_delete=models.CASCADE) #temporario
+    user = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True,null=True)
+    date = models.DateField(default=timezone.now)
+    time = models.CharField(max_length=255)
+    picture = models.ImageField(null=True,blank=True)
+    is_availabe = models.BooleanField(default=False)
+    #picture
+    
+    def __str__(self):
+        return f"{self.services.name} - Dia :{self.date_time.strftime('%Y-%m-%d')} Hora: {self.time.strftime('%H:%M')}"
+    
 
 
 

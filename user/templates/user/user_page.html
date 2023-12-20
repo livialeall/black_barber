@@ -1,6 +1,28 @@
 {% extends "global/base.html" %}
 
 {% block content %}
-<h1>Deu certo! Voce esta na sua pagina, {{user}}!</h1>
+{% include "user/partials/header_user_page.html" %}
+<div class="user_page_button_div">
+   <a href="{% url "user:new_appoint" user_pk %}"><button class="user_page_button_div_appoint">Nova Marcação</button></a>
+   <a href="{% url "user:new_appoint" user_pk %}"><button class="user_page_button_div_galery">Galeria de Referências</button></a>
+</div>
 
+
+<h2>Serviços</h2>
+<div class="user_page_list_services">
+{% for service in services %}
+<div>
+   <ul>
+        <li>
+            <button class="user_page_button_service">
+               <span class="user_page_services_name">{{service.services_name}}</span>
+               <span>R${{service.services_amount}}</span>
+         </button>
+         </li>
+   </ul> 
+</div>
+{% endfor %}
+</div>
+{% include "user/partials/user_appointments.html" %}
+{% include "user/partials/nav_user_page.html" %}
 {% endblock content %}

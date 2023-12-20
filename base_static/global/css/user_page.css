@@ -1,0 +1,181 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+
+
+*{
+    font-family: 'Lato', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    color:#292929;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+/* HEADER */
+
+main {
+    margin: 0px 20%;
+    border: 3px solid black;
+    padding: 0px 20px;
+    border-radius: 10px;
+    background: #F5F5F5;
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.451);
+}
+body{
+    background: gray;
+    color: #171717;
+    height: 100vh;
+}
+
+.header_user_page{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+.header_user_page_buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px
+}
+
+
+.header_user_page_buttons img{
+    width: 28%;
+}
+
+.marca{
+    font-family: 'Rammetto One', sans-serif;
+    font-size: 36px;
+    color:#292929;
+    display: block;
+    margin-top: 50px;
+}
+
+/* BOTOES DE MARCAR E GALERIA */
+.user_page_button_div{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.user_page_button_div button{
+   width: 212px;
+   height: 64px;
+   border: none;
+   color: #264311;
+   font-weight: 600;
+   font-family: Roboto Slab;
+    font-size: 16px;
+    line-height: 36px; /* 150% */
+    letter-spacing: 0.72px;
+}
+
+.user_page_button_div_appoint{
+    border-radius: 20px;
+    background: #F8DEC8;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+ }
+
+ .user_page_button_div_appoint:hover{
+    background: #264311;
+    color: #F8DEC8;
+    transition: .3s;
+ }
+
+
+.user_page_button_div_galery{
+    border-radius: 20px;
+    background: #FBFBFB;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+ }
+
+ .user_page_button_div_galery:hover{
+    background: #264311;
+    color: #FBFBFB;
+    transition: .3s;
+ }
+
+
+
+/* LISTA DE SERVIÇOS - CARDAPIO */
+.user_page_button_service{
+    border-radius: 35px;
+    background: #FFF;
+    width: 124px;
+    height: 200px;
+    flex-shrink: 0;
+    font-family: Roboto Slab;
+    font-size: 18px;
+    line-height: 23,94px; /* 133.333% */
+    letter-spacing: 0.81px;
+    text-align: left;
+    padding: 15px;
+}
+
+.user_page_button_service span{
+    color: #4b4b4b;
+    font-family: Roboto Slab;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 23,94px; /* 133.333% */
+    letter-spacing: 0.81px;
+}
+
+.user_page_services_name{
+    margin-bottom: 65px;
+}
+
+
+.user_page_button_service:hover{
+    border-radius: 35px;
+    background: #628C45;
+    box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.25);
+    font-family: Roboto Slab;
+}
+
+.user_page_list_services{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+
+h2{
+    margin-top: 50px;
+}
+
+
+/* NAVEGAÇÃO NA PAGINA DO USUARIO */
+.nav_user_page{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 15px 30px;
+}
+
+/* MOSTRA PROXIMOS CORTES */
+.user_appointments{
+    margin-top: 25px;
+    flex-shrink: 0;
+    padding: 15px 30px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    background: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

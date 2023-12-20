@@ -11,8 +11,11 @@ from django.contrib import auth
 
 def index(request):
     site_title = 'Pagina inicial'
+    css_file = 'global/css/index.css'
     context = {
-        'site_title' : site_title
+        'site_title' : site_title,
+        'index':index,
+        'css_file':css_file
     }
     return render(request,'user/index.html',context)
 
@@ -20,8 +23,8 @@ def index(request):
 #CADASTRO DE NOVO USUARIO - FORMULARIO
 #SOBREESCREVE O MEU MODEL
 class ClientRegister(UserCreationForm):
-    first_name = forms.CharField(max_length=255,required=True)
-    last_name = forms.CharField(max_length=255,required=True)
+    first_name = forms.CharField(max_length=255,required=True,label='Primeiro Nome')
+    last_name = forms.CharField(max_length=255,required=True,label='Sobrenome')
     email = forms.EmailField(required=True)
     class Meta:
         model = User
@@ -44,7 +47,7 @@ class ClientRegister(UserCreationForm):
 
 #VIEW CADASTRO DE NOVO USUARIO
 def sign_up_form(request):
-    
+    css_file = 'global/css/login.css'
     site_title = 'Cadastro'
     form = ClientRegister()
 
@@ -57,12 +60,12 @@ def sign_up_form(request):
        
         if form.is_valid():
             form.save()
-            return redirect('user:index') #FUTURAMENTE VAI REDIRECIONAR DIRETO PARA A PAGINA DO USUARIO
+            return redirect('user:user_page',user_pk=user.id) #FUTURAMENTE VAI REDIRECIONAR DIRETO PARA A PAGINA DO USUARIO
     
     context = {
         'site_title' : site_title,
         'form':form,
-
+        'css_file':css_file
   
     }
     return render(request,'user/sign_up_form.html',context)

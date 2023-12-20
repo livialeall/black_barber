@@ -10,9 +10,8 @@ urlpatterns = [
     path('sign_up_form/',views.sign_up_form,name='sign_up_form'),
     #LOGIN DE USUARIO
     path('login/',views.login,name='login'),
-    
     #PAGINA DO USUARIO
-    path('user/<int:contact_id>/user_page',views.login,name='user_page'),
-    
-   
+    path('user/<int:user_pk>/user_page',views.user_page,name='user_page'),
+    #NOVA MARCAÇÃO
+    path('user/<int:user_pk>/new_appoint',views.new_appointment,name='new_appoint'),
 ]

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django import forms
-from django.urls import reverse #consigo passar dados dentro da função para ela retornar uma url
+
 from django.core.exceptions import ValidationError
 from django.contrib.auth import password_validation
 from django.contrib import auth
@@ -10,15 +10,17 @@ from django.contrib.auth.forms import AuthenticationForm
 
 
 
+
+
 def login(request):
 
     form = AuthenticationForm(request)
     site_title = 'Login'
-    
+    css_file = 'global/css/login.css'
     context = {
         'form' : form,
         'site_title' : site_title,
-
+        'css_file':css_file
     }
     if request.method == 'POST':
         form = AuthenticationForm(request,data=request.POST)
@@ -26,12 +28,12 @@ def login(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request,user)
-            print('DEU CERTO')
-            return render(request,'user/user_page.html') #FUTURAMENTE VAI REDIRECIONAR DIRETO PARA A PAGINA DO USUARIO
+            return redirect('user:user_page',user_pk=user.pk)
+            #FUTURAMENTE VAI REDIRECIONAR DIRETO PARA A PAGINA DO USUARIO
         else:
            messages.error(request,'Login Invalido')
            print('DEU ERRADO')
            return redirect('user:login')
            
-    
+
     return render(request,'user/login.html',context)
