@@ -1,6 +1,6 @@
 # Black - Barbershop
 
-Bem-vindo a aplicação da Black - Barbershop! Este projeto é uma aplicação web para gerenciamento de marcações de uma barbearia, desenvolvida utilizando HTML, CSS, Python/Django e Javascript.
+Bem-vindo a aplicação da Black - Barbershop! Este projeto é uma aplicação web para clientes da barbearia possa gerenciar suas marcações, desenvolvida utilizando HTML, CSS, Python/Django e Javascript.
 
 ## Funcionalidades Principais
 
