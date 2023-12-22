@@ -14,4 +14,6 @@ urlpatterns = [
     path('user/<int:user_pk>/user_page',views.user_page,name='user_page'),
     #NOVA MARCAÇÃO
     path('user/<int:user_pk>/new_appoint',views.new_appointment,name='new_appoint'),
+    #PROGRAMA DE FIDADELIDADE
+    path('user/<int:user_pk>/loyalty_programme',views.loyalty_programme,name='loyalty_programme'),
 ]

@@ -2,7 +2,26 @@
 
 
 {% block content %}
+{% include "user/partials/header_user_page.html" %}
+<form action="" method="POST">
 
-    {% include "user/partials/forms.html" %}
+    {% csrf_token %}
+    <h2>Escolha seu serviço:</h2>
+    {{form.services}}
 
+    <h2>Escolha o dia:</h2>
+    {{form.date}}
+
+    <h2>Horarios disponíveis:</h2>
+    {{form.time}}
+    
+        {{form.time.errors}}
+
+    
+
+    <button class="button" type="submit">Agendar</button>
+
+</form>
+
+{% include "user/partials/nav_user_page.html" %}
 {% endblock content %}

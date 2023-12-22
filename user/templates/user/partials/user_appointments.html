@@ -1,13 +1,19 @@
 {% load static %}
 <h2>Próximos Agendamentos</h2>
-<div class="user_appointments">
 
-    <div>
-        <h3>Corte Infantil</h3>
-        <span>25 de Janeiro - 14:00 - Quarta-Feira</span>
-    </div>
+        {% for appointment in user_appointment %}
+        <div class="user_appointments">
 
-    <div>
-        <img src="{% static "global/img/menu_icon.svg" %}" alt="">
-    </div>
-</div>
+            <div>
+                <h3>{{appointment.services.services_name}}</h3>
+                <span>{{appointment.date}} - {{appointment.time}}</span>
+            </div>
+
+            <div>
+                <img src="{% static "global/img/menu_icon.svg" %}" alt="">
+            </div>   
+        </div>
+              
+        {% endfor %}
+
+    

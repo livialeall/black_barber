@@ -34,18 +34,19 @@ class AppointmentForm(forms.ModelForm):
     )
     
     HORARIOS = [
-        (8,'8H'),
-        (9,'9H'),
-        (10,'10H'),
-        (11,'11H'),
-        (12,'12H'),
-        (14,'14H'),
-        (15,'15H'),
-        (16,'16H'),
-        (17,'17H'),
-        (18,'18H'),
+        ('8','8H'),
+        ('9','9H'),
+        ('10','10H'),
+        ('11','11H'),
+        ('12','12H'),
+        ('14','14H'),
+        ('15','15H'),
+        ('16','16H'),
+        ('17','17H'),
+        ('18','18H'),
     ]
     time = forms.ChoiceField(choices=HORARIOS, widget=forms.Select)
+    
     
     class Meta:
         model = TimeSlot

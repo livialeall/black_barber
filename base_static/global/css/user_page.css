@@ -22,15 +22,11 @@
 /* HEADER */
 
 main {
-    margin: 0px 20%;
-    border: 3px solid black;
-    padding: 0px 20px;
-    border-radius: 10px;
-    background: #F5F5F5;
-    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.451);
+    margin: 0px 10%;
 }
+
 body{
-    background: gray;
+    background: #F5F5F5;
     color: #171717;
     height: 100vh;
 }
@@ -163,8 +159,8 @@ h2{
     background-color: white;
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
     padding: 15px 30px;
+    margin:20px -12% 0px -12%;
 }
 
 /* MOSTRA PROXIMOS CORTES */
@@ -176,6 +172,47 @@ h2{
     border-radius: 15px;
     background: #FFF;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user_appointments div {
+    align-self: center;
+}
+
+/* Formulario de novo agendamento */
+
+
+.user_new_appointments{
+    margin-top: 25px;
+    flex-shrink: 0;
+    padding: 15px 30px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    background: #FFF;
+    display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+.button {
+    margin-top: 20px;
+    width: 35%;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    border: 1px solid rgba(68, 104, 43, 0.53);
+    border-radius: 10px;
+    background: #628C45;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.button:hover{
+    background: #E5AE0B;
+    transition: .3s;
+}
+
+.errorlist{
+    color: red;
 }

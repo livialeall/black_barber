@@ -1,0 +1,21 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+{% include "user/partials/header_user_page.html" %}
+    
+<h2>Programa de Fidelidade</h2>
+<h4>Faça 6 cortes e ganhe outro!*</h4>
+
+{% comment %} onde vai ser o gráfico {% endcomment %}
+    <div>
+        <img src="data:image/png;base64,{{ image_base64 }}" alt="Donut Chart Matplotlib">
+    </div>
+    <span>Faltam {{cuts_missing}} cortes para ganhar!</span>
+
+    
+<a href="{% url "user:new_appoint" user_pk %}"><button class="button">Nova Marcação</button></a>
+<span>*Promoção não é válida para cortes infantis</span>
+
+{% include "user/partials/user_appointments.html" %}
+{% include "user/partials/nav_user_page.html" %}
+{% endblock content %}

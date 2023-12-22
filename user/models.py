@@ -19,7 +19,6 @@ class Services(models.Model):
 
 #DISPONIBILIDADE
 class TimeSlot(models.Model):
-    
     services = models.ForeignKey(Services,on_delete=models.CASCADE) #temporario
     user = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True,null=True)
     date = models.DateField(default=timezone.now)
@@ -29,7 +28,7 @@ class TimeSlot(models.Model):
     #picture
     
     def __str__(self):
-        return f"{self.services.name} - Dia :{self.date_time.strftime('%Y-%m-%d')} Hora: {self.time.strftime('%H:%M')}"
+        return f"{self.services.services_name} - Dia :{self.date.strftime('%Y-%m-%d')} Hora: {self.time}"
     
 
 
